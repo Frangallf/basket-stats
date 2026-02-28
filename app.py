@@ -97,6 +97,5 @@ def export_pdf(df):
     pdf.ln(10)
     for _, r in df.iterrows():
         pdf.cell(0, 10, f"{r['Jugador']}: {r['Puntos']} Pts | {r['Rebotes']} Reb | {r['Faltas']} Faltas", ln=True)
-    return pdf.output(dest='S').encode('latin-1')
-
+    return pdf.output
 st.download_button("📩 Descargar Acta en PDF", data=export_pdf(st.session_state.players_stats), file_name="partido.pdf")
